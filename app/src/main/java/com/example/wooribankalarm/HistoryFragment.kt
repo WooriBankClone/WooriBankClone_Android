@@ -1,14 +1,14 @@
 package com.example.wooribankalarm
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
-import kotlinx.android.synthetic.*
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
 
@@ -16,6 +16,9 @@ class HistoryFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /*val toolbar =
+            findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)*/
 
         radioClicked(this.requireView())
 
