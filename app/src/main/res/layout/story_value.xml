@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="22dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/bg_month"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        tools:ignore="MissingConstraints">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_month"
+        android:paddingHorizontal="16dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp">
+
+
+        <TextView
+            android:id="@+id/info_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="자동이체 안내"
+            android:fontFamily="@font/nanumsquarer"
+            android:textColor="@color/cancel_grey"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/info_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="71dp"
+            android:text="자동이체 종료예정"
+            android:fontFamily="@font/nanumsquareb"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/today_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="DATE"
+            android:fontFamily="@font/nanumsquarer"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_big" />
+
+        <TextView
+            android:id="@+id/contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="textView"
+            android:fontFamily="@font/nanumsquarer"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/today_date" />
+
+        <TextView
+            android:id="@+id/postpone"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="@drawable/custom_textview"
+            android:fontFamily="@font/nanumsquarer"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents" />
+
+        <TextView
+            android:id="@+id/checkcheck"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="@drawable/custom_textview"
+            android:fontFamily="@font/nanumsquarer"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
