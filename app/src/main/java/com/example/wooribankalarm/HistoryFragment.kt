@@ -33,44 +33,30 @@ class HistoryFragment : Fragment() {
     }
 
     private fun radioClicked(view: View){
-        var checked = view as RadioButton
-        /*radio_group.setOnCheckedChangeListener(
-            RadioGroup.OnCheckedChangeListener { radio, checkedId ->
-                val radio: RadioButton = find()
-                Toast.makeText(context," On checked change :"+
-                        " ${radio.text}",
-                    Toast.LENGTH_SHORT).show()
-            })*/
 
-        if (radio1.isChecked) {
+        if (btn_radio1.isChecked) {
             //TODO: radio button 클릭시 데이터 분기 처리
             Toast.makeText(context, "1개월", Toast.LENGTH_SHORT).show()
-        }else if (radio2.isChecked) {
+        }else if (btn_radio2.isChecked) {
             Toast.makeText(context, "3개월", Toast.LENGTH_SHORT).show()
 
-        }else if (radio3.isChecked) {
+        }else if (btn_radio3.isChecked) {
             Toast.makeText(context, "6개월", Toast.LENGTH_SHORT).show()
         }else{
             Toast.makeText(context, "12개월", Toast.LENGTH_SHORT).show()
         }
     }
 
-   /* fun radio_button_click(view: View){
-        // Get the clicked radio button instance
-        val radio: RadioButton = findViewById(radio_group.checkedRadioButtonId)
-        Toast.makeText(context,"On click : ${radio.text}",
-            Toast.LENGTH_SHORT).show()
-    }*/
 
-    companion object {
-        /**
+   /* companion object {
+        *//**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
          * @return A new instance of fragment MyPageFragment.
-         */
+         *//*
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
@@ -78,5 +64,5 @@ class HistoryFragment : Fragment() {
                 arguments = Bundle().apply {
                 }
             }
-    }
+    }*/
 }
