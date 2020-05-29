@@ -49,21 +49,26 @@ class HistoryFragment : Fragment() {
     }
 
     private fun loadDatas(){
+        //뭔가 여기서 서버 통신 결과에 따른 caseBy를 설정해줘서 이후 뷰홀더, 어뎁터 동작하도록 해야할 듯
+        //일단 caseBy 하드코딩 함
         hData.apply {
             add(
                 HistoryData(
-                    history_content = "hundred",
-                    history_content2 = "dollar bill"
+                   // history_content = "입금",
+                    history_content = "hundred dollar bill",
+                    caseBy = 0 //입금
                 ))
             add(
                 HistoryData(
-                    history_content = "hundred hundred",
-                    history_content2 = "dollar bill"
+                    //history_content = "출금",
+                    history_content = "hundred dollar bill",
+                    caseBy = 1 //출금
                 ))
             add(
                 HistoryData(
-                    history_content = "YEAH",
-                    history_content2 = "다시 돌아왔지 내 이름 sery HO!"
+                   // history_content = "취소",
+                    history_content = "HO!",
+                    caseBy = 2 //취소
                 ))
         }
         historyAdapter.hDatas = hData

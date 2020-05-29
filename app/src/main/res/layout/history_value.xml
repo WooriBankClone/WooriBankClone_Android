@@ -12,46 +12,106 @@
 
     <!-- 세리가 임시 만든 아이템! 정민언니 파트 -->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bg_month"
-        android:padding="16dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp">
 
-
-        <TextView
-            android:id="@+id/history_content"
-            android:layout_width="wrap_content"
+    <!-- 입금, 취소 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/history_item_left"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:fontFamily="@font/nanumsquareb"
-            android:text="@string/hundred"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="60dp"
+            android:background="@color/bg_month"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/history_content2"
-            android:layout_width="wrap_content"
+
+            <TextView
+                android:id="@+id/history_case_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/nanumsquareb"
+                android:text="@string/hundred"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/history_content_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquareb"
+                android:text="@string/dollar_bill"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+     <!--출금-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/history_item_right1"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquareb"
-            android:text="@string/dollar_bill"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/bg_month"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/history_case_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/nanumsquareb"
+                android:text="@string/hundred"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/history_content_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquareb"
+                android:text="@string/dollar_bill"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

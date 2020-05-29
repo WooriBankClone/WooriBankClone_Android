@@ -19,7 +19,24 @@ class HistoryAdapter(private val context: Context) : RecyclerView.Adapter<Histor
     }
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-        holder.bind(hDatas[position])
+
+
+        //케이스에 따라서 historyFragment에서 caseBy값 설정해주고,
+        //여기서 if로 걸러서 각 케바케 뷰 홀더 작동 시킬 것임
+
+        val caseBy = hDatas[position].caseBy
+
+        holder.bind(hDatas[position], caseBy) //케바케로 바인딩 내용 메시지가 달라지도록 뷰홀더에서 설정
+
+        if (caseBy == 0){ //입금
+
+
+        }else if ( caseBy == 1){ // 출금
+
+        }else{ // caseBy == 2로 취소이거나 버그
+
+        }
+
 
     }
 }
