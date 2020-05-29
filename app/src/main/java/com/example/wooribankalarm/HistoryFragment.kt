@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
 
@@ -28,6 +29,7 @@ class HistoryFragment : Fragment() {
 
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +43,8 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         historyAdapter = HistoryAdapter(view.context)
         rv_history.adapter = historyAdapter
+        rv_history.layoutManager = LinearLayoutManager(context)
+        rv_history.setHasFixedSize(false)
         loadDatas()
     }
 
@@ -53,15 +57,17 @@ class HistoryFragment : Fragment() {
                 ))
             add(
                 HistoryData(
-                    history_content = "hundred",
+                    history_content = "hundred hundred",
                     history_content2 = "dollar bill"
                 ))
             add(
                 HistoryData(
-                    history_content = "hundred",
-                    history_content2 = "dollar bill"
+                    history_content = "YEAH",
+                    history_content2 = "다시 돌아왔지 내 이름 sery HO!"
                 ))
         }
+        historyAdapter.hDatas = hData
+        historyAdapter.notifyDataSetChanged()
     }
 
     private fun radioClicked(view: View){

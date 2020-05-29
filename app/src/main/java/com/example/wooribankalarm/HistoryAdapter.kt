@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class HistoryAdapter(private val context: Context) : RecyclerView.Adapter<HistoryViewHolder>() {
 
-    private var hDatas = mutableListOf<HistoryData>()
+    var hDatas = mutableListOf<HistoryData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.history_value, parent, false)
