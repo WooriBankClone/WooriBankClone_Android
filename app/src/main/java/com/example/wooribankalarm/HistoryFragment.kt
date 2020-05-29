@@ -1,24 +1,39 @@
 package com.example.wooribankalarm
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_history.*
+import kotlinx.android.synthetic.main.fragment_history_radio.*
 
 class HistoryFragment : Fragment() {
-
     lateinit var historyAdapter: HistoryAdapter
     val hData = mutableListOf<HistoryData>()
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        /*val toolbar =
+            findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)*/
+
+        radioClicked(this.requireView())
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history,container, false)
-
+        return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
 
@@ -48,6 +63,22 @@ class HistoryFragment : Fragment() {
                 ))
         }
     }
+
+    private fun radioClicked(view: View){
+
+        if (btn_radio1.isChecked) {
+            //TODO: radio button 클릭시 데이터 분기 처리
+            Toast.makeText(context, "1개월", Toast.LENGTH_SHORT).show()
+        }else if (btn_radio2.isChecked) {
+            Toast.makeText(context, "3개월", Toast.LENGTH_SHORT).show()
+
+        }else if (btn_radio3.isChecked) {
+            Toast.makeText(context, "6개월", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(context, "12개월", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     companion object {
         /**
