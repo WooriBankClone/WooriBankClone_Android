@@ -24,8 +24,8 @@ class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             tv_case_left.text = "입금"
             //금액 등등 내 추가
             tv_content_left.text = historyData.history_content
-            itemView.findViewById<TextView>(R.id.history_case_right).visibility = View.GONE
-            itemView.findViewById<TextView>(R.id.history_content_right).visibility = View.GONE
+            val menu: ConstraintLayout = itemView.findViewById(R.id.history_item_right)
+            menu.visibility = ConstraintLayout.INVISIBLE
 
 
 
@@ -35,15 +35,15 @@ class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             tv_case_right.text = "출금"
             //금액 등등 내용 추가
             tv_content_right.text = historyData.history_content
-            itemView.findViewById<TextView>(R.id.history_case_left).visibility = View.GONE
-            itemView.findViewById<TextView>(R.id.history_content_left).visibility = View.GONE
+            val menu: ConstraintLayout = itemView.findViewById(R.id.history_item_left)
+            menu.visibility = ConstraintLayout.INVISIBLE
 
         }else{ // caseBy == 2로 취소이거나 버그
             tv_case_left.text = "취소"
             //금액 등등 내용 추가
             tv_content_left.text = historyData.history_content
-            itemView.findViewById<TextView>(R.id.history_case_right).visibility = View.GONE
-            itemView.findViewById<TextView>(R.id.history_content_right).visibility = View.GONE
+            val menu: ConstraintLayout = itemView.findViewById(R.id.history_item_right)
+            menu.visibility = ConstraintLayout.INVISIBLE
 
 
         }

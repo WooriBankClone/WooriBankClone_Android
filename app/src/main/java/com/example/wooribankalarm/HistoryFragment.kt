@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -60,15 +61,39 @@ class HistoryFragment : Fragment() {
                 ))
             add(
                 HistoryData(
-                    //history_content = "출금",
+                    // history_content = "입금",
                     history_content = "hundred dollar bill",
+                    caseBy = 0 //입금
+                ))
+            add(
+                HistoryData(
+                    //history_content = "출금",
+                    history_content = "Yeah 다시 돌아왔지",
                     caseBy = 1 //출금
                 ))
             add(
                 HistoryData(
                    // history_content = "취소",
-                    history_content = "HO!",
+                    history_content = "내 이름 레인,,",
                     caseBy = 2 //취소
+                ))
+            add(
+                HistoryData(
+                    //history_content = "출금",
+                    history_content = "스웩을 뽐내 WHOO!",
+                    caseBy = 1 //출금
+                ))
+            add(
+                HistoryData(
+                    // history_content = "취소",
+                    history_content = "They call it",
+                    caseBy = 2 //취소
+                ))
+            add(
+                HistoryData(
+                    // history_content = "입금",
+                    history_content = "왕의 귀환",
+                    caseBy = 0 //입금
                 ))
         }
         historyAdapter.hDatas = hData
