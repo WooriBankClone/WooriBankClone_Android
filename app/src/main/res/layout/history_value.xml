@@ -16,9 +16,10 @@
     <!-- 입금, 취소 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/history_item_left"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="60dp"
         android:background="@color/bg_month"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -107,9 +108,10 @@
 
         <View
             android:id="@+id/view3"
-            android:layout_width="130dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
+            android:layout_marginStart="70dp"
             android:layout_marginBottom="20dp"
             android:background="@color/blue"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -158,8 +160,9 @@
     <!--출금-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/history_item_right"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginStart="60dp"
         android:layout_marginEnd="16dp"
         android:background="@color/bg_month"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -248,9 +251,10 @@
 
         <View
             android:id="@+id/view7"
-            android:layout_width="130dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="11dp"
             android:layout_marginBottom="20dp"
             android:background="@color/minus_red"
