@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="5dp"
     android:background="@color/bg">
 
     <TextView
@@ -13,20 +13,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="2020년 05월 30일 토요일"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/history_item_left"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- 입금 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/history_item_left"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="60dp"
-        android:visibility="invisible"
         android:background="@color/bg_month"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/history_date"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
@@ -54,11 +54,11 @@
             android:textAlignment="textStart"
             android:textColor="@color/blue"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view4"
-            app:layout_constraintBottom_toTopOf="@+id/view"/>
+            app:layout_constraintTop_toBottomOf="@+id/view4" />
 
 
         <TextView
@@ -72,9 +72,9 @@
             android:lineHeight="12sp"
             android:text="0000-111-222222"
             android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view4"
-            app:layout_constraintBottom_toTopOf="@+id/view"/>
+            app:layout_constraintTop_toBottomOf="@+id/view4" />
 
         <View
             android:id="@+id/view"
@@ -116,23 +116,23 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="70dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="32dp"
             android:background="@color/pinkish_grey"
-            app:layout_constraintTop_toBottomOf="@+id/history_content_left"
-            app:layout_constraintEnd_toEndOf="@id/history_item_left" />
+            app:layout_constraintEnd_toEndOf="@id/history_item_left"
+            app:layout_constraintTop_toBottomOf="@+id/history_content_left" />
 
         <ImageView
             android:id="@+id/imageView_time_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
             android:layout_marginBottom="9dp"
             android:src="@drawable/history_img_time"
-            android:layout_marginTop="2dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
         <TextView
@@ -141,8 +141,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:textAlignment="center"
             android:text="17:20:33"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/imageView_time_left"
             app:layout_constraintStart_toEndOf="@+id/imageView_time_left"
             app:layout_constraintTop_toTopOf="@+id/imageView_time_left" />
@@ -156,9 +156,9 @@
             android:layout_marginEnd="9dp"
             android:layout_marginBottom="6dp"
             android:text="잔액:00000원"
-            app:layout_constraintTop_toBottomOf="@+id/view3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- 취소 -->
@@ -166,11 +166,11 @@
         android:id="@+id/history_item_left2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="60dp"
-        android:visibility="invisible"
         android:background="@color/bg_month"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/history_date"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
@@ -198,11 +198,11 @@
             android:textAlignment="textStart"
             android:textColor="@color/pinkish_grey"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/view_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view4_2"
-            app:layout_constraintBottom_toTopOf="@+id/view_2"/>
+            app:layout_constraintTop_toBottomOf="@+id/view4_2" />
 
 
         <TextView
@@ -216,9 +216,9 @@
             android:lineHeight="12sp"
             android:text="0000-111-222222"
             android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/view_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view4_2"
-            app:layout_constraintBottom_toTopOf="@+id/view_2"/>
+            app:layout_constraintTop_toBottomOf="@+id/view4_2" />
 
         <View
             android:id="@+id/view_2"
@@ -260,23 +260,23 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="70dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="32dp"
             android:background="@color/pinkish_grey"
-            app:layout_constraintTop_toBottomOf="@+id/history_content_left2"
-            app:layout_constraintEnd_toEndOf="@id/history_item_left2" />
+            app:layout_constraintEnd_toEndOf="@id/history_item_left2"
+            app:layout_constraintTop_toBottomOf="@+id/history_content_left2" />
 
         <ImageView
             android:id="@+id/imageView_time_left2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
             android:layout_marginBottom="9dp"
             android:src="@drawable/history_img_time"
-            android:layout_marginTop="2dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
         <TextView
@@ -285,8 +285,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:textAlignment="center"
             android:text="17:20:33"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/imageView_time_left2"
             app:layout_constraintStart_toEndOf="@+id/imageView_time_left2"
             app:layout_constraintTop_toTopOf="@+id/imageView_time_left2" />
@@ -300,13 +300,11 @@
             android:layout_marginEnd="9dp"
             android:layout_marginBottom="6dp"
             android:text="잔액:00000원"
-            app:layout_constraintTop_toBottomOf="@+id/view3_2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3_2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
     <!--출금-->
@@ -314,11 +312,11 @@
         android:id="@+id/history_item_right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="17dp"
-        android:layout_marginStart="60dp"
-        android:visibility="visible"
         android:background="@color/bg_month"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
@@ -346,11 +344,11 @@
             android:textAlignment="textStart"
             android:textColor="@color/minus_red"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/view6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view5"
-            app:layout_constraintBottom_toTopOf="@+id/view6"/>
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
 
 
         <TextView
@@ -364,9 +362,9 @@
             android:lineHeight="12sp"
             android:text="0000-111-222222"
             android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/view6"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view5"
-            app:layout_constraintBottom_toTopOf="@+id/view6"/>
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
 
         <View
             android:id="@+id/view6"
@@ -408,23 +406,23 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="70dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="32dp"
             android:background="@color/minus_red"
-            app:layout_constraintTop_toBottomOf="@+id/history_content_right"
-            app:layout_constraintEnd_toEndOf="@id/history_item_right" />
+            app:layout_constraintEnd_toEndOf="@id/history_item_right"
+            app:layout_constraintTop_toBottomOf="@+id/history_content_right" />
 
         <ImageView
             android:id="@+id/imageView_time_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
             android:layout_marginBottom="9dp"
             android:src="@drawable/history_img_time"
-            android:layout_marginTop="2dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
         <TextView
@@ -433,8 +431,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:textAlignment="center"
             android:text="17:20:33"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/imageView_time_right"
             app:layout_constraintStart_toEndOf="@+id/imageView_time_right"
             app:layout_constraintTop_toTopOf="@+id/imageView_time_right" />
@@ -448,9 +446,9 @@
             android:layout_marginEnd="9dp"
             android:layout_marginBottom="6dp"
             android:text="잔액:00000원"
-            app:layout_constraintTop_toBottomOf="@+id/view7"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

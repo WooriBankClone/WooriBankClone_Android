@@ -22,6 +22,7 @@
             android:backgroundTint="@color/blue"
             android:layout_marginLeft="16dp"
             android:layout_weight="0"
+            android:checked="true"
             android:text=" 1개월"
             android:textSize="12sp"
             android:textColor="@drawable/custom_radio_textcolor"

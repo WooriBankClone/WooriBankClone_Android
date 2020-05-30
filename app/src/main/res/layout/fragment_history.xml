@@ -88,7 +88,9 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="70dp"
+            android:clipToPadding="false"
             app:layout_constraintTop_toBottomOf="@id/cst_history_radio_top"
             android:layout_marginTop="0dp">
             <LinearLayout
