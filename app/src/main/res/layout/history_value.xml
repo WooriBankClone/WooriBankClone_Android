@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg"
-    android:padding="16dp"
-    android:paddingTop="0dp"
-    android:paddingBottom="22dp">
+    android:background="@color/bg">
 
-
+    <TextView
+        android:id="@+id/history_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="2020년 05월 30일 토요일"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/history_item_left"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- 입금 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/history_item_left"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="60dp"
+        android:visibility="invisible"
         android:background="@color/bg_month"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/history_date"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
@@ -40,7 +48,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/nanumsquareb"
             android:lineHeight="16dp"
             android:text="@string/hundred"
@@ -50,7 +57,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/view4"
+            app:layout_constraintBottom_toTopOf="@+id/view"/>
 
 
         <TextView
@@ -58,7 +66,6 @@
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="9dp"
             android:width="95dp"
             android:height="12dp"
@@ -66,7 +73,8 @@
             android:text="0000-111-222222"
             android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/view4"
+            app:layout_constraintBottom_toTopOf="@+id/view"/>
 
         <View
             android:id="@+id/view"
@@ -85,79 +93,85 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="7dp"
             android:src="@drawable/history_img_plus"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/view" />
 
         <TextView
             android:id="@+id/history_content_left"
             style="@style/PlusMinusCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/nanumsquareb"
-            android:text="@string/dollar_bill"
+            android:text="내계좌\n우리님이\n30,000원을 출금하셨습니다."
             android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView_left"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView_left"
-            app:layout_constraintTop_toTopOf="@+id/imageView_left" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/view3"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <View
             android:id="@+id/view3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
+            android:layout_marginTop="12dp"
             android:layout_marginStart="70dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/blue"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="32dp"
+            android:background="@color/pinkish_grey"
+            app:layout_constraintTop_toBottomOf="@+id/history_content_left"
             app:layout_constraintEnd_toEndOf="@id/history_item_left" />
 
         <ImageView
             android:id="@+id/imageView_time_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="9dp"
             android:src="@drawable/history_img_time"
+            android:layout_marginTop="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         <TextView
             android:id="@+id/textView3"
             style="@style/HistoryAccountNumber"
-            android:layout_width="46dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:textAlignment="center"
             android:text="17:20:33"
-            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_time_left"
             app:layout_constraintStart_toEndOf="@+id/imageView_time_left"
-            app:layout_constraintTop_toTopOf="@+id/textView4" />
+            app:layout_constraintTop_toTopOf="@+id/imageView_time_left" />
 
         <TextView
             android:id="@+id/textView4"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="6dp"
             android:text="잔액:00000원"
+            app:layout_constraintTop_toBottomOf="@+id/view3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/view3" />
-
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- 취소 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/history_item_left2"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="60dp"
+        android:visibility="invisible"
         android:background="@color/bg_month"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/history_date"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
@@ -178,7 +192,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/nanumsquareb"
             android:lineHeight="16dp"
             android:text="@string/hundred"
@@ -188,7 +201,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/view4_2"
+            app:layout_constraintBottom_toTopOf="@+id/view_2"/>
 
 
         <TextView
@@ -196,7 +210,6 @@
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="9dp"
             android:width="95dp"
             android:height="12dp"
@@ -204,7 +217,8 @@
             android:text="0000-111-222222"
             android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/view4_2"
+            app:layout_constraintBottom_toTopOf="@+id/view_2"/>
 
         <View
             android:id="@+id/view_2"
@@ -223,67 +237,72 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="7dp"
             android:src="@drawable/history_img_cancel"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/view_2" />
 
         <TextView
             android:id="@+id/history_content_left2"
             style="@style/PlusMinusCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/nanumsquareb"
-            android:text="@string/dollar_bill"
+            android:text="내계좌\n너희님이\n50,000원을 취소하셨습니다."
             android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView_left2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView_left2"
-            app:layout_constraintTop_toTopOf="@+id/imageView_left2" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/view3_2"
+            app:layout_constraintTop_toBottomOf="@+id/view_2" />
 
         <View
             android:id="@+id/view3_2"
-            android:layout_width="130dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginBottom="32dp"
             android:background="@color/pinkish_grey"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/history_content_left2"
             app:layout_constraintEnd_toEndOf="@id/history_item_left2" />
 
         <ImageView
             android:id="@+id/imageView_time_left2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="9dp"
             android:src="@drawable/history_img_time"
             android:layout_marginTop="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView3_2" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         <TextView
             android:id="@+id/textView3_2"
             style="@style/HistoryAccountNumber"
-            android:layout_width="46dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:textAlignment="center"
             android:text="17:20:33"
-            app:layout_constraintBottom_toBottomOf="@+id/textView4_2"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_time_left2"
             app:layout_constraintStart_toEndOf="@+id/imageView_time_left2"
-            app:layout_constraintTop_toTopOf="@+id/textView4_2" />
+            app:layout_constraintTop_toTopOf="@+id/imageView_time_left2" />
 
         <TextView
             android:id="@+id/textView4_2"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="6dp"
             android:text="잔액:00000원"
+            app:layout_constraintTop_toBottomOf="@+id/view3_2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView3_2"
-            app:layout_constraintTop_toBottomOf="@+id/view3_2" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -294,14 +313,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/history_item_right"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="17dp"
         android:layout_marginStart="60dp"
-        android:layout_marginEnd="16dp"
+        android:visibility="visible"
         android:background="@color/bg_month"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
+
 
         <View
             android:id="@+id/view5"
@@ -319,7 +340,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/nanumsquareb"
             android:lineHeight="16dp"
             android:text="@string/hundred"
@@ -329,14 +349,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/view5"
+            app:layout_constraintBottom_toTopOf="@+id/view6"/>
+
 
         <TextView
             android:id="@+id/history_account_right"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="9dp"
             android:width="95dp"
             android:height="12dp"
@@ -344,11 +365,12 @@
             android:text="0000-111-222222"
             android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/view5"
+            app:layout_constraintBottom_toTopOf="@+id/view6"/>
 
         <View
             android:id="@+id/view6"
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_marginTop="31dp"
@@ -363,71 +385,72 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="7dp"
             android:src="@drawable/history_img_minus"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/view6" />
 
         <TextView
             android:id="@+id/history_content_right"
             style="@style/PlusMinusCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/nanumsquareb"
-            android:text="@string/dollar_bill"
+            android:text="내계좌\n우리님이\n30,000원을 출금하셨습니다."
             android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView_right"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView_right"
-            app:layout_constraintTop_toTopOf="@+id/imageView_right" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/view7"
+            app:layout_constraintTop_toBottomOf="@+id/view6" />
 
         <View
             android:id="@+id/view7"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
+            android:layout_marginTop="12dp"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="32dp"
             android:background="@color/minus_red"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/history_content_right"
             app:layout_constraintEnd_toEndOf="@id/history_item_right" />
 
         <ImageView
             android:id="@+id/imageView_time_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="9dp"
             android:src="@drawable/history_img_time"
+            android:layout_marginTop="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         <TextView
             android:id="@+id/textView"
             style="@style/HistoryAccountNumber"
-            android:layout_width="46dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:textAlignment="center"
             android:text="17:20:33"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_time_right"
             app:layout_constraintStart_toEndOf="@+id/imageView_time_right"
-            app:layout_constraintTop_toTopOf="@+id/textView6" />
-
+            app:layout_constraintTop_toTopOf="@+id/imageView_time_right" />
 
         <TextView
             android:id="@+id/textView6"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="6dp"
             android:text="잔액:00000원"
+            app:layout_constraintTop_toBottomOf="@+id/view7"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/view7" />
-
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
