@@ -4,7 +4,4 @@
         android:drawable="@drawable/story_btn_nonclick"/>
     <item android:state_checked="true"
         android:drawable="@drawable/story_btn_click"/>
-
-
-
 </selector>
