@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/blue</item>
     </style>
 
+    <style name="HistoryAccountNumber">
+        <item name="android:textSize">11sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/pinkish_grey</item>
+    </style>
+
+    <style name="PlusMinusCancel">
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineSpacingExtra">7sp</item>
+        <item name="android:textColor">@color/pinkish_grey</item>
+    </style>
+
 </resources>
