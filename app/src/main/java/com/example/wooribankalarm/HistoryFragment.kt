@@ -4,20 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.wooribankalarm.api.RequestToServer
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
 
 class HistoryFragment : Fragment() {
     lateinit var historyAdapter: HistoryAdapter
     val hData = mutableListOf<HistoryData>()
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,10 +42,14 @@ class HistoryFragment : Fragment() {
         rv_history.adapter = historyAdapter
         rv_history.layoutManager = LinearLayoutManager(context)
         rv_history.setHasFixedSize(false)
-        loadDatas()
+
+        loadDummyDatas()
     }
 
-    private fun loadDatas(){
+
+
+
+    private fun loadDummyDatas(){
         //뭔가 여기서 서버 통신 결과에 따른 caseBy를 설정해줘서 이후 뷰홀더, 어뎁터 동작하도록 해야할 듯
         //일단 caseBy 하드코딩 함
         hData.apply {

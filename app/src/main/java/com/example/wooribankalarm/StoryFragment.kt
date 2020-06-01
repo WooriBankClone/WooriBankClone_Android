@@ -5,16 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.wooribankalarm.api.RequestToServer
 import kotlinx.android.synthetic.main.fragment_story.*
 
 class StoryFragment : Fragment() {
 
     lateinit var storyAdapter : StoryAdapter
     val datas = mutableListOf<StoryData>()
+    val serverService = RequestToServer // 싱글톤으로 그대로 가져오기
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,8 +27,23 @@ class StoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         storyAdapter = StoryAdapter(view.context)
         rv_story.adapter = storyAdapter
-        loadDatas()
+        //loadDatas()
     }
+
+    override fun onResume() {
+        super.onResume()
+        //initData()
+    }
+
+    /*private fun initData(){
+        requestData()
+    }
+
+    private fun requestData() {
+        serverService.service.onBind(
+            ///
+        )
+    }*/
 
     private fun loadDatas() {
         datas.apply {
