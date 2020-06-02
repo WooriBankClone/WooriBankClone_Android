@@ -12,6 +12,7 @@ data class StoCon(
     val userName: String, //contents
     val userAccount: String, //1
     val otherName: String, //1
+    val otherAccount:String,
     val flag: Int,
     val dueDate: String, // 1, today_date
     val content: String // 1
