@@ -1,20 +1,31 @@
 package com.example.wooribankalarm
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.wooribankalarm.api.RequestToServer
+import com.example.wooribankalarm.data.request.ReqAutoTransfer
+import com.example.wooribankalarm.data.response.ResAutoTransfer
+import com.example.wooribankalarm.data.response.StoCon
 import kotlinx.android.synthetic.main.fragment_story.*
+import kotlinx.android.synthetic.main.story_value.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.http.Body
 
 class StoryFragment : Fragment() {
 
     lateinit var storyAdapter : StoryAdapter
     val datas = mutableListOf<StoryData>()
+    val resauto_data = mutableListOf<ResAutoTransfer>()
+    //val serverService =RequestToServer.service // 싱글톤으로 그대로 가져오기
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,7 +37,37 @@ class StoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         storyAdapter = StoryAdapter(view.context)
         rv_story.adapter = storyAdapter
-        loadDatas()
+        //loadDatas()
+        requestData()
+    }
+
+
+    private fun requestData() {
+        val call: Call<ResAutoTransfer> =RequestToServer.service.autoTransfer(body =  ReqAutoTransfer(0))
+        call.enqueue(object :Callback<ResAutoTransfer>{
+            override fun onFailure(call: Call<ResAutoTransfer>, t: Throwable) {
+                Log.e("autoTransfer",t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<ResAutoTransfer>,
+                response: Response<ResAutoTransfer>
+            ) {
+                if (response.isSuccessful){
+                    response.body().let { body ->
+                        Log.e("통신 응답 바디", "status: ${body!!.status} data : ${body!!.data}")
+
+                        for (i in 0 until body.data?.size!!) {
+                            if (body.data[i].flag==0) { // 자동 이체 종료 예정
+
+                            }else{ // 이체 예정
+
+                            }
+                        }
+                    }
+                }
+            }
+        })
     }
 
     private fun loadDatas() {
