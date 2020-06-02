@@ -38,7 +38,7 @@ class StoryViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
         if (stoCon.flag==0){
             contents.text=stoCon.otherName+"고객님 "+
-                    stoCon.userAccount+"계좌에서 "+stoCon.otherName+"계좌로 연결된 ["+stoCon.content+"] 자동이체가 "+
+                    stoCon.userAccount+"계좌에서 "+stoCon.otherAccount+" "+stoCon.otherName+" 계좌로 연결된 ["+stoCon.content+"] 자동이체가 "+
                     stoCon.dueDate+"에 종료예정입니다."
             checkcheck.text="납부일 변경"
             postpone.text="납부일 연장"
