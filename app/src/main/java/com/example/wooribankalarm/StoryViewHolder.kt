@@ -7,7 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wooribankalarm.api.RequestInterface
 import com.example.wooribankalarm.api.RequestToServer
-import com.example.wooribankalarm.data.response.ResAutoTranster
+import com.example.wooribankalarm.data.response.ResAutoTransfer
+
 
 class StoryViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     val info_small = itemView.findViewById<TextView>(R.id.info_small)
@@ -27,22 +28,26 @@ class StoryViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     private var contentstring:String=""
     val requestToServer = RequestToServer
 
-    fun bind(storyData : StoryData, resAutoTranster: ResAutoTranster) {
-        info_small.text = storyData.info_small
+    fun bind(autoTransfer: ResAutoTransfer) {
+        /*info_small.text = storyData.info_small
         info_big.text = storyData.info_big
         today_date.text = storyData.today_date
         contents.text = storyData.contents
-        checkcheck.text = storyData.checkcheck
-        postpone.text = storyData.postpone
+        checkcheck.text = storyData.checkcheck 왼
+        postpone.text = storyData.postpone 오*/
 
 
 
         //TODO: 데이터 서버에 요청 어떻게 하지..?
+        for (i in 0 until autoTransfer.data?.size!!) {
+            
+        }
+
 
         // transacType = resAutoTranster.data?.flag?.toInt()
         if (transacType == 0) { //종료예정
             //종료
-            contentstring = resAutoTranster.data?.userName.toString()
+          //  contentstring = resAutoTranster.data?.userName.toString()
         } else { // 예정
 
         }

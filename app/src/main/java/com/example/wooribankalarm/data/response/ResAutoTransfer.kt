@@ -1,10 +1,10 @@
 package com.example.wooribankalarm.data.response
 
-data class ResAutoTranster(
+data class ResAutoTransfer(
     val status: String,
     val success:Boolean,
     val message: String,
-    val data: StoCon?
+    val data: ArrayList<StoCon>
 )
 
 data class StoCon(
