@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wooribankalarm.api.RequestToServer
+import com.example.wooribankalarm.data.response.StoCon
 
 
 class StoryAdapter(private val context : Context) : RecyclerView.Adapter<StoryViewHolder>() {
-    var datas = mutableListOf<StoryData>()
+    var datas = mutableListOf<StoCon>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
