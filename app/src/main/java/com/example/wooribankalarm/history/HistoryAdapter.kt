@@ -1,9 +1,10 @@
-package com.example.wooribankalarm
+package com.example.wooribankalarm.history
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wooribankalarm.R
 
 class HistoryAdapter(private val context: Context) : RecyclerView.Adapter<HistoryViewHolder>() {
 
