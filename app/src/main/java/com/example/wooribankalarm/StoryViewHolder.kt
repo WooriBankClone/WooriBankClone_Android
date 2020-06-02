@@ -32,8 +32,8 @@ class StoryViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         story_date.text = stoCon.date
         today_date.text=stoCon.dueDate
         contents.text=""
-        checkcheck.text = ""//storyData.checkcheck 왼
-        postpone.text = ""//storyData.postpone 오
+        checkcheck.text = ""
+        postpone.text = ""
 
 
         if (stoCon.flag==0){
@@ -43,20 +43,6 @@ class StoryViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
             checkcheck.text="납부일 변경"
             postpone.text="납부일 연장"
         }else{
-
-        }
-
-//        //TODO: 데이터 서버에 요청 어떻게 하지..?
-//        for (i in 0 until autoTransfer.data?.size!!) {
-//
-//        }
-
-
-        // transacType = resAutoTranster.data?.flag?.toInt()
-        if (transacType == 0) { //종료예정
-            //종료
-          //  contentstring = resAutoTranster.data?.userName.toString()
-        } else { // 예정
 
         }
     }

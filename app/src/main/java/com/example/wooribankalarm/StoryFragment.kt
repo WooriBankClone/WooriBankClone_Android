@@ -58,25 +58,11 @@ class StoryFragment : Fragment() {
                         Log.e("통신 응답 바디", "status: ${body!!.status} data : ${body!!.data}")
                         storyAdapter.datas=body.data
                         storyAdapter.notifyDataSetChanged()
-
-
-//                        for (i in 0 until body.data?.size!!) {
-//                            storyAdapter.datas=body.data
-//                            if (body.data[i].flag==0) { // 자동 이체 종료 예정
-//
-//                            }else{ // 이체 예정
-//
-//                            }
                         }
                     }
                 }
 
         })
-    }
-
-    private fun loadDatas() {
-        storyAdapter.datas = datas
-        storyAdapter.notifyDataSetChanged()
     }
 
     companion object {
