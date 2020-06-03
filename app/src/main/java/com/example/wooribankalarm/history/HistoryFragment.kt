@@ -1,4 +1,4 @@
-package com.example.wooribankalarm
+package com.example.wooribankalarm.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wooribankalarm.api.RequestToServer
+import com.example.wooribankalarm.R
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
 
@@ -38,7 +38,8 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        historyAdapter = HistoryAdapter(view.context)
+        historyAdapter =
+            HistoryAdapter(view.context)
         rv_history.adapter = historyAdapter
         rv_history.layoutManager = LinearLayoutManager(context)
         rv_history.setHasFixedSize(false)
@@ -55,46 +56,60 @@ class HistoryFragment : Fragment() {
         hData.apply {
             add(
                 HistoryData(
-                   // history_content = "입금",
-                    history_content = "hundred dollar bill",
+                    // history_content = "입금",
+                    history_content1 = "박세곤님이",
+                    history_content2 = "10,000원 입금했습니다.",
                     caseBy = 0 //입금
-                ))
+                )
+            )
             add(
                 HistoryData(
                     // history_content = "입금",
-                    history_content = "hundred dollar bill",
+                    history_content1 = "박세란님이",
+                    history_content2 = "35,000원 입금했습니다.",
                     caseBy = 0 //입금
-                ))
+                )
+            )
             add(
                 HistoryData(
                     //history_content = "출금",
-                    history_content = "Yeah 다시 돌아왔지",
+                    history_content1 = "박세곤님이",
+                    history_content2 = "20,000원 출금했습니다.",
                     caseBy = 1 //출금
-                ))
-            add(
-                HistoryData(
-                   // history_content = "취소",
-                    history_content = "내 이름 레인,,",
-                    caseBy = 2 //취소
-                ))
-            add(
-                HistoryData(
-                    //history_content = "출금",
-                    history_content = "스웩을 뽐내 WHOO!",
-                    caseBy = 1 //출금
-                ))
+                )
+            )
             add(
                 HistoryData(
                     // history_content = "취소",
-                    history_content = "They call it",
+                    history_content1 = "박세곤님이",
+                    history_content2 = "입금을 취소했습니다.",
                     caseBy = 2 //취소
-                ))
+                )
+            )
+            add(
+                HistoryData(
+                    //history_content = "출금",
+                    history_content1 = "박세곤님이",
+                    history_content2 = "10,000원 출금했습니다.",
+                    caseBy = 1 //출금
+                )
+            )
+            add(
+                HistoryData(
+                    // history_content = "취소",
+                    history_content1 = "박세곤님이",
+                    history_content2 = "출금을 취소했습니다.",
+                    caseBy = 2 //취소
+                )
+            )
             add(
                 HistoryData(
                     // history_content = "입금",
-                    history_content = "왕의 귀환",
+                    history_content1 = "이정민님이",
+                    history_content2 = "70,000원 입금했습니다.",
                     caseBy = 0 //입금
-                ))
+                )
+            )
         }
         historyAdapter.hDatas = hData
         historyAdapter.notifyDataSetChanged()

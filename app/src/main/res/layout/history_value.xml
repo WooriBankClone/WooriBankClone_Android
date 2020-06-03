@@ -8,7 +8,7 @@
     android:background="@color/bg">
 
     <TextView
-        android:id="@+id/history_date"
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/history_case_left"
+            android:id="@+id/transacType1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -62,7 +62,7 @@
 
 
         <TextView
-            android:id="@+id/history_account_left"
+            android:id="@+id/myAccount1"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
@@ -99,17 +99,30 @@
             app:layout_constraintTop_toTopOf="@+id/view" />
 
         <TextView
-            android:id="@+id/history_content_left"
+            android:id="@+id/from1"
             style="@style/PlusMinusCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/nanumsquareb"
-            android:text="내계좌\n우리님이\n30,000원을 출금하셨습니다."
+            android:text="우리님이"
             android:textColor="@color/black"
             android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="@+id/view3"
+            app:layout_constraintStart_toStartOf="@+id/amount1"
             app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/amount1"
+            style="@style/PlusMinusCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="30,000원을 출금하셨습니다."
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/from1"
+            app:layout_constraintStart_toStartOf="@id/view3"/>
 
         <View
             android:id="@+id/view3"
@@ -121,7 +134,7 @@
             android:layout_marginBottom="32dp"
             android:background="@color/pinkish_grey"
             app:layout_constraintEnd_toEndOf="@id/history_item_left"
-            app:layout_constraintTop_toBottomOf="@+id/history_content_left" />
+            app:layout_constraintTop_toBottomOf="@+id/amount1" />
 
         <ImageView
             android:id="@+id/imageView_time_left"
@@ -136,7 +149,7 @@
 
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/time1"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -148,7 +161,7 @@
             app:layout_constraintTop_toTopOf="@+id/imageView_time_left" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/balance1"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -171,7 +184,7 @@
         android:layout_marginEnd="60dp"
         android:background="@color/bg_month"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/history_date"
+        app:layout_constraintStart_toStartOf="@+id/date"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
@@ -188,7 +201,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/history_case_left2"
+            android:id="@+id/transacType2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -206,7 +219,7 @@
 
 
         <TextView
-            android:id="@+id/history_account_left2"
+            android:id="@+id/myAccount2"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
@@ -243,17 +256,30 @@
             app:layout_constraintTop_toTopOf="@+id/view_2" />
 
         <TextView
-            android:id="@+id/history_content_left2"
+            android:id="@+id/from2"
             style="@style/PlusMinusCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/nanumsquareb"
-            android:text="내계좌\n너희님이\n50,000원을 취소하셨습니다."
+            android:text="우리님이"
             android:textColor="@color/black"
             android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="@+id/view3_2"
+            app:layout_constraintStart_toStartOf="@+id/amount2"
             app:layout_constraintTop_toBottomOf="@+id/view_2" />
+
+        <TextView
+            android:id="@+id/amount2"
+            style="@style/PlusMinusCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="30,000원을 출금하셨습니다."
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/from2"
+            app:layout_constraintStart_toStartOf="@id/view3_2"/>
 
         <View
             android:id="@+id/view3_2"
@@ -265,7 +291,7 @@
             android:layout_marginBottom="32dp"
             android:background="@color/pinkish_grey"
             app:layout_constraintEnd_toEndOf="@id/history_item_left2"
-            app:layout_constraintTop_toBottomOf="@+id/history_content_left2" />
+            app:layout_constraintTop_toBottomOf="@+id/amount2" />
 
         <ImageView
             android:id="@+id/imageView_time_left2"
@@ -280,7 +306,7 @@
 
 
         <TextView
-            android:id="@+id/textView3_2"
+            android:id="@+id/time2"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -292,7 +318,7 @@
             app:layout_constraintTop_toTopOf="@+id/imageView_time_left2" />
 
         <TextView
-            android:id="@+id/textView4_2"
+            android:id="@+id/balance2"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -334,7 +360,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/history_case_right"
+            android:id="@+id/transacType3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -352,7 +378,7 @@
 
 
         <TextView
-            android:id="@+id/history_account_right"
+            android:id="@+id/myAccount3"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
@@ -389,17 +415,30 @@
             app:layout_constraintTop_toTopOf="@+id/view6" />
 
         <TextView
-            android:id="@+id/history_content_right"
+            android:id="@+id/from3"
             style="@style/PlusMinusCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/nanumsquareb"
-            android:text="내계좌\n우리님이\n30,000원을 출금하셨습니다."
+            android:text="우리님이"
             android:textColor="@color/black"
             android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="@+id/view7"
+            app:layout_constraintStart_toStartOf="@+id/amount3"
             app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+        <TextView
+            android:id="@+id/amount3"
+            style="@style/PlusMinusCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareb"
+            android:text="30,000원을 출금하셨습니다."
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/from3"
+            app:layout_constraintStart_toStartOf="@id/view7"/>
 
         <View
             android:id="@+id/view7"
@@ -411,7 +450,7 @@
             android:layout_marginBottom="32dp"
             android:background="@color/minus_red"
             app:layout_constraintEnd_toEndOf="@id/history_item_right"
-            app:layout_constraintTop_toBottomOf="@+id/history_content_right" />
+            app:layout_constraintTop_toBottomOf="@+id/amount3" />
 
         <ImageView
             android:id="@+id/imageView_time_right"
@@ -426,7 +465,7 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/time3"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -438,7 +477,7 @@
             app:layout_constraintTop_toTopOf="@+id/imageView_time_right" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/balance3"
             style="@style/HistoryAccountNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
