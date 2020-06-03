@@ -6,6 +6,5 @@ import retrofit2.http.POST
 
 interface RequestInterfaceHistory {
     @POST("/user")
-    fun requestUser(
-        @Body body : RequestUser) : Call<ResponseUser>
+    fun requestUser(@Body body : RequestUser) : Call<ResponseUser>
 }
