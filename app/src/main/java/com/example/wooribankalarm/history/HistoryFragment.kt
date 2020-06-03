@@ -1,43 +1,72 @@
 package com.example.wooribankalarm.history
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wooribankalarm.R
+import com.example.wooribankalarm.api.RequestToServer
+import com.example.wooribankalarm.api.RequestToServer.service
+import com.example.wooribankalarm.data.request.ReqAutoTransfer
+import com.example.wooribankalarm.data.response.ResAutoTransfer
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
+import kotlinx.android.synthetic.main.story_value.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HistoryFragment : Fragment() {
     lateinit var historyAdapter: HistoryAdapter
     val hData = mutableListOf<HistoryData>()
+    lateinit var topData :  HistoCon
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        /*val toolbar =
-            findViewById<View>(R.id.toolbar) as Toolbar
-        setSupportActionBar(toolbar)*/
+    private fun requestData() {
+        val call: Call<ResponseUser> = RequestToServerHistory.service.requestUser(body =  RequestUser(0))
+        call.enqueue(object : Callback<ResponseUser> {
+            override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
+                Log.e("requestUser 통신실패",t.toString())
+            }
+            override fun onResponse(call: Call<ResponseUser>, response: Response<ResponseUser>) {
+                if (response.isSuccessful){
+                    response.body().let { body->
+                    Log.e("history 통신응답바디", "status: ${body!!.status} data : ${body!!.data}")
+                    this@HistoryFragment.topData = response.body()?.data!!
+                    myAccount.text=topData.account
+                    balance.text=topData.balance
+                    }
+                }
 
-        radioClicked(this.requireView())
-
+            }
+        })
     }
+
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //requestData()
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requestData()
+        radioClicked(view)//this.requireView()
+       // myAccount.text=topData.account.toString()
+
         historyAdapter =
             HistoryAdapter(view.context)
         rv_history.adapter = historyAdapter
