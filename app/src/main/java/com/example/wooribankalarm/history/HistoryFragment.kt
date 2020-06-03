@@ -14,6 +14,9 @@ import com.example.wooribankalarm.api.RequestToServer
 import com.example.wooribankalarm.api.RequestToServer.service
 import com.example.wooribankalarm.data.request.ReqAutoTransfer
 import com.example.wooribankalarm.data.response.ResAutoTransfer
+import com.example.wooribankalarm.data.response.StoCon
+import com.example.wooribankalarm.history_money.*
+import com.example.wooribankalarm.history_money.RequestToServerMoney.service
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
 import kotlinx.android.synthetic.main.story_value.*
@@ -24,6 +27,7 @@ import retrofit2.Response
 class HistoryFragment : Fragment() {
     lateinit var historyAdapter: HistoryAdapter
     val hData = mutableListOf<HistoryData>()
+    val mData= mutableListOf<HistoMoneyCon>()
     lateinit var topData :  HistoCon
 
 
@@ -46,7 +50,28 @@ class HistoryFragment : Fragment() {
             }
         })
     }
+    private fun requestData2() {
+        val call: Call<ResponseMoney> = RequestToServerMoney.service.requestMoney(body = RequestMoney(0, 1))
+        call.enqueue(object : Callback<ResponseMoney> {
+            override fun onFailure(call: Call<ResponseMoney>, t: Throwable) {
+                Log.e("requestMoney 통신실패",t.toString())
+            }
+            override fun onResponse(call: Call<ResponseMoney>, response: Response<ResponseMoney>) {
+                if (response.isSuccessful){
+                    response.body().let{ body->
+                        Log.e("historymoney 통신응답바디", "status: ${body!!.status} data : ${body!!.data}")
+                        historyAdapter.mDatas=body.data
+                        historyAdapter.notifyDataSetChanged()
 
+                    }
+                }
+            }
+
+
+
+
+        })
+    }
 
 
     override fun onCreateView(
@@ -64,6 +89,7 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         requestData()
+        requestData2()
         radioClicked(view)//this.requireView()
        // myAccount.text=topData.account.toString()
 
@@ -73,13 +99,13 @@ class HistoryFragment : Fragment() {
         rv_history.layoutManager = LinearLayoutManager(context)
         rv_history.setHasFixedSize(false)
 
-        loadDummyDatas()
+        //loadDummyDatas()
     }
 
 
 
 
-    private fun loadDummyDatas(){
+    /*private fun loadDummyDatas(){
         //뭔가 여기서 서버 통신 결과에 따른 caseBy를 설정해줘서 이후 뷰홀더, 어뎁터 동작하도록 해야할 듯
         //일단 caseBy 하드코딩 함
         hData.apply {
@@ -142,7 +168,7 @@ class HistoryFragment : Fragment() {
         }
         historyAdapter.hDatas = hData
         historyAdapter.notifyDataSetChanged()
-    }
+    }*/
 
     private fun radioClicked(view: View){
 
