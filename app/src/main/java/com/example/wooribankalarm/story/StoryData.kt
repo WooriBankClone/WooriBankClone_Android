@@ -1,4 +1,4 @@
-package com.example.wooribankalarm
+package com.example.wooribankalarm.story
 
 data class StoryData(
     val today_date : String,

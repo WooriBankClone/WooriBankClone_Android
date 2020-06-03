@@ -1,4 +1,4 @@
-package com.example.wooribankalarm.history
+package com.example.wooribankalarm.data.response
 
 data class ResponseUser(
     val status : Int,
