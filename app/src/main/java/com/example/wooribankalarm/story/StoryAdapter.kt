@@ -1,10 +1,10 @@
-package com.example.wooribankalarm
+package com.example.wooribankalarm.story
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wooribankalarm.api.RequestToServer
+import com.example.wooribankalarm.R
 import com.example.wooribankalarm.data.response.StoCon
 
 

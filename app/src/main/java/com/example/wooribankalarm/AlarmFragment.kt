@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 class AlarmFragment : Fragment() {
+    //우리 개발 영역이 아님
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
