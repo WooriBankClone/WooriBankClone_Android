@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wooribankalarm.R
-import com.example.wooribankalarm.data.response.StoCon
-import com.example.wooribankalarm.history_money.HistoMoneyCon
+import com.example.wooribankalarm.data.response.HistoMoneyCon
 
 class HistoryAdapter(private val context: Context) : RecyclerView.Adapter<HistoryViewHolder>() {
     var mDatas = mutableListOf<HistoMoneyCon>()
