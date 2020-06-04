@@ -5,21 +5,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wooribankalarm.R
 import com.example.wooribankalarm.api.RequestToServer
-import com.example.wooribankalarm.api.RequestToServer.service
-import com.example.wooribankalarm.data.request.ReqAutoTransfer
-import com.example.wooribankalarm.data.response.ResAutoTransfer
-import com.example.wooribankalarm.data.response.StoCon
-import com.example.wooribankalarm.history_money.*
-import com.example.wooribankalarm.history_money.RequestToServerMoney.service
+import com.example.wooribankalarm.data.request.RequestMoney
+import com.example.wooribankalarm.data.request.RequestUser
+import com.example.wooribankalarm.data.response.*
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
-import kotlinx.android.synthetic.main.story_value.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,11 +23,11 @@ class HistoryFragment : Fragment() {
     lateinit var historyAdapter: HistoryAdapter
     val hData = mutableListOf<HistoryData>()
     val mData= mutableListOf<HistoMoneyCon>()
-    lateinit var topData :  HistoCon
+    lateinit var topData : HistoCon
 
 
     private fun requestData() {
-        val call: Call<ResponseUser> = RequestToServerHistory.service.requestUser(body =  RequestUser(0))
+        val call: Call<ResponseUser> = RequestToServer.service.requestUser(body =  RequestUser(0))
         call.enqueue(object : Callback<ResponseUser> {
             override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
                 Log.e("requestUser 통신실패",t.toString())
@@ -40,10 +35,10 @@ class HistoryFragment : Fragment() {
             override fun onResponse(call: Call<ResponseUser>, response: Response<ResponseUser>) {
                 if (response.isSuccessful){
                     response.body().let { body->
-                    Log.e("history 통신응답바디", "status: ${body!!.status} data : ${body!!.data}")
-                    this@HistoryFragment.topData = response.body()?.data!!
-                    myAccount.text=topData.account
-                    balance.text=topData.balance
+                        Log.e("history 통신응답바디", "status: ${body!!.status} data : ${body!!.data}")
+                        this@HistoryFragment.topData = response.body()?.data!!
+                        myAccount.text=topData.account
+                        balance.text=topData.balance
                     }
                 }
 
@@ -51,7 +46,7 @@ class HistoryFragment : Fragment() {
         })
     }
     private fun requestData2() {
-        val call: Call<ResponseMoney> = RequestToServerMoney.service.requestMoney(body = RequestMoney(0, 1))
+        val call: Call<ResponseMoney> = RequestToServer.service.requestMoney(body = RequestMoney(0, 1))
         call.enqueue(object : Callback<ResponseMoney> {
             override fun onFailure(call: Call<ResponseMoney>, t: Throwable) {
                 Log.e("requestMoney 통신실패",t.toString())
@@ -91,7 +86,7 @@ class HistoryFragment : Fragment() {
         requestData()
         requestData2()
         radioClicked(view)//this.requireView()
-       // myAccount.text=topData.account.toString()
+        // myAccount.text=topData.account.toString()
 
         historyAdapter =
             HistoryAdapter(view.context)
