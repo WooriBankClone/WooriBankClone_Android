@@ -5,8 +5,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wooribankalarm.R
-import com.example.wooribankalarm.data.response.StoCon
-import com.example.wooribankalarm.history_money.HistoMoneyCon
+import com.example.wooribankalarm.data.response.HistoMoneyCon
 
 
 class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
