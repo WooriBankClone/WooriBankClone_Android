@@ -1,4 +1,4 @@
-package com.example.wooribankalarm
+package com.example.wooribankalarm.story
 
 import android.os.Bundle
 import android.util.Log
@@ -6,16 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.wooribankalarm.R
 import com.example.wooribankalarm.api.RequestToServer
 import com.example.wooribankalarm.data.request.ReqAutoTransfer
 import com.example.wooribankalarm.data.response.ResAutoTransfer
 import com.example.wooribankalarm.data.response.StoCon
 import kotlinx.android.synthetic.main.fragment_story.*
-import kotlinx.android.synthetic.main.story_value.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Body
 
 class StoryFragment : Fragment() {
 
@@ -35,7 +34,8 @@ class StoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        storyAdapter = StoryAdapter(view.context)
+        storyAdapter =
+            StoryAdapter(view.context)
         rv_story.adapter = storyAdapter
         //loadDatas()
         requestData()

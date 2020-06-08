@@ -1,6 +1,4 @@
-package com.example.wooribankalarm.history_money
-
-import com.example.wooribankalarm.history.HistoCon
+package com.example.wooribankalarm.data.response
 
 data class ResponseMoney(
     val status : Int,
