@@ -23,7 +23,7 @@ import retrofit2.Response
 class HistoryFragment : Fragment() {
     lateinit var historyAdapter: HistoryAdapter
     val hData = mutableListOf<HistoryData>()
-    var mData= listOf<HistoMoneyCon>()
+    var mData= mutableListOf<HistoMoneyCon>()
     lateinit var topData : HistoCon
     lateinit var bottomData : HistoMoneyCon
 
@@ -57,34 +57,9 @@ class HistoryFragment : Fragment() {
                 if (response.isSuccessful){
                     response.body().let{ body->
                         Log.e("historymoney 통신응답바디", "status: ${body!!.status} data : ${body!!.data}")
-                        this@HistoryFragment.mData = response.body()?.data!!
-                        when(bottomData.flag) {
-                            0 -> {
-                                transacType1.text = "입금"
-                                myAccount1.text = bottomData.account
-                                from1.text = bottomData.other
-                                amount1.text = bottomData.amount
-                                time1.text = bottomData.time
-                                balance1.text = bottomData.balance
-                            }
-                            1 -> {
-                                transacType2.text = "입금"
-                                myAccount2.text = bottomData.account
-                                from2.text = bottomData.other
-                                amount2.text = bottomData.amount
-                                time2.text = bottomData.time
-                                balance2.text = bottomData.balance
-                            }
-                            2 -> {
-                                transacType3.text = "입금"
-                                myAccount3.text = bottomData.account
-                                from3.text = bottomData.other
-                                amount3.text = bottomData.amount
-                                time3.text = bottomData.time
-                                balance3.text = bottomData.balance
-                            }
+                        historyAdapter.mDatas = body.data
+                        historyAdapter.notifyDataSetChanged()
 
-                        }
 //                        historyAdapter.mDatas=body.data
 //                        historyAdapter.notifyDataSetChanged()
 

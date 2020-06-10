@@ -52,10 +52,7 @@ class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var time: String=""
     private var date: String=""
 
-    fun bind(
-        histoMoneyCon: HistoMoneyCon,
-        caseBy: Int
-    ){
+    fun bind(histoMoneyCon: HistoMoneyCon){
         tv_case_left.text = ""
         tv_case_left2.text = ""
         tv_case_right.text = ""
