@@ -48,7 +48,7 @@ class HistoryFragment : Fragment() {
         })
     }
     private fun requestData2() {
-        val call: Call<ResponseMoney> = RequestToServer.service.requestMoney(body = RequestMoney(0, 1))
+        val call: Call<ResponseMoney> = RequestToServer.service.requestMoney(body = RequestMoney(0, 12))
         call.enqueue(object : Callback<ResponseMoney> {
             override fun onFailure(call: Call<ResponseMoney>, t: Throwable) {
                 Log.e("requestMoney 통신실패",t.toString())
@@ -60,9 +60,6 @@ class HistoryFragment : Fragment() {
                         historyAdapter.mDatas = body.data
                         historyAdapter.notifyDataSetChanged()
 
-//                        historyAdapter.mDatas=body.data
-//                        historyAdapter.notifyDataSetChanged()
-
                     }
                 }
             }
@@ -70,8 +67,6 @@ class HistoryFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        //requestData()
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
