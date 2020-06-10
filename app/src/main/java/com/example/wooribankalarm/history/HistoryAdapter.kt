@@ -9,7 +9,7 @@ import com.example.wooribankalarm.data.response.HistoMoneyCon
 
 class HistoryAdapter(private val context: Context) : RecyclerView.Adapter<HistoryViewHolder>() {
     var mDatas = mutableListOf<HistoMoneyCon>()
-    var hDatas = mutableListOf<HistoryData>()
+//    var hDatas = mutableListOf<HistoryData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.history_value, parent, false)
@@ -18,6 +18,7 @@ class HistoryAdapter(private val context: Context) : RecyclerView.Adapter<Histor
 
     override fun getItemCount(): Int {
         return mDatas.size
+
     }
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
@@ -30,14 +31,14 @@ class HistoryAdapter(private val context: Context) : RecyclerView.Adapter<Histor
 
         holder.bind(mDatas[position], caseBy) //케바케로 바인딩 내용 메시지가 달라지도록 뷰홀더에서 설정
 
-        if (caseBy == 0){ //입금
-
-
-        }else if ( caseBy == 1){ // 출금
-
-        }else{ // caseBy == 2로 취소이거나 버그
-
-        }
+//        if (caseBy == 0){ //입금
+//
+//
+//        }else if ( caseBy == 1){ // 출금
+//
+//        }else{ // caseBy == 2로 취소이거나 버그
+//
+//        }
 
 
     }

@@ -15,6 +15,7 @@ import com.example.wooribankalarm.data.request.RequestUser
 import com.example.wooribankalarm.data.response.*
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
+import kotlinx.android.synthetic.main.history_value.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,8 +23,9 @@ import retrofit2.Response
 class HistoryFragment : Fragment() {
     lateinit var historyAdapter: HistoryAdapter
     val hData = mutableListOf<HistoryData>()
-    val mData= mutableListOf<HistoMoneyCon>()
+    var mData= listOf<HistoMoneyCon>()
     lateinit var topData : HistoCon
+    lateinit var bottomData : HistoMoneyCon
 
 
     private fun requestData() {
@@ -55,49 +57,65 @@ class HistoryFragment : Fragment() {
                 if (response.isSuccessful){
                     response.body().let{ body->
                         Log.e("historymoney 통신응답바디", "status: ${body!!.status} data : ${body!!.data}")
-                        historyAdapter.mDatas=body.data
-                        historyAdapter.notifyDataSetChanged()
+                        this@HistoryFragment.mData = response.body()?.data!!
+                        when(bottomData.flag) {
+                            0 -> {
+                                transacType1.text = "입금"
+                                myAccount1.text = bottomData.account
+                                from1.text = bottomData.other
+                                amount1.text = bottomData.amount
+                                time1.text = bottomData.time
+                                balance1.text = bottomData.balance
+                            }
+                            1 -> {
+                                transacType2.text = "입금"
+                                myAccount2.text = bottomData.account
+                                from2.text = bottomData.other
+                                amount2.text = bottomData.amount
+                                time2.text = bottomData.time
+                                balance2.text = bottomData.balance
+                            }
+                            2 -> {
+                                transacType3.text = "입금"
+                                myAccount3.text = bottomData.account
+                                from3.text = bottomData.other
+                                amount3.text = bottomData.amount
+                                time3.text = bottomData.time
+                                balance3.text = bottomData.balance
+                            }
+
+                        }
+//                        historyAdapter.mDatas=body.data
+//                        historyAdapter.notifyDataSetChanged()
 
                     }
                 }
             }
-
-
-
-
         })
     }
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //requestData()
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        requestData()
-        requestData2()
-        radioClicked(view)//this.requireView()
         // myAccount.text=topData.account.toString()
 
-        historyAdapter =
-            HistoryAdapter(view.context)
+        historyAdapter = HistoryAdapter(view.context)
         rv_history.adapter = historyAdapter
-        rv_history.layoutManager = LinearLayoutManager(context)
-        rv_history.setHasFixedSize(false)
+        requestData()
+        requestData2()
+
+
+//        rv_history.layoutManager = LinearLayoutManager(context)
+//        rv_history.setHasFixedSize(false)
 
         //loadDummyDatas()
     }
-
-
 
 
     /*private fun loadDummyDatas(){
