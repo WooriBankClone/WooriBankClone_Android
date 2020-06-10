@@ -15,6 +15,7 @@ import com.example.wooribankalarm.data.request.RequestUser
 import com.example.wooribankalarm.data.response.*
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history_radio.*
+import kotlinx.android.synthetic.main.history_value.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,8 +23,9 @@ import retrofit2.Response
 class HistoryFragment : Fragment() {
     lateinit var historyAdapter: HistoryAdapter
     val hData = mutableListOf<HistoryData>()
-    val mData= mutableListOf<HistoMoneyCon>()
+    var mData= mutableListOf<HistoMoneyCon>()
     lateinit var topData : HistoCon
+    lateinit var bottomData : HistoMoneyCon
 
 
     private fun requestData() {
@@ -46,7 +48,7 @@ class HistoryFragment : Fragment() {
         })
     }
     private fun requestData2() {
-        val call: Call<ResponseMoney> = RequestToServer.service.requestMoney(body = RequestMoney(0, 1))
+        val call: Call<ResponseMoney> = RequestToServer.service.requestMoney(body = RequestMoney(0, 12))
         call.enqueue(object : Callback<ResponseMoney> {
             override fun onFailure(call: Call<ResponseMoney>, t: Throwable) {
                 Log.e("requestMoney 통신실패",t.toString())
@@ -55,49 +57,35 @@ class HistoryFragment : Fragment() {
                 if (response.isSuccessful){
                     response.body().let{ body->
                         Log.e("historymoney 통신응답바디", "status: ${body!!.status} data : ${body!!.data}")
-                        historyAdapter.mDatas=body.data
+                        historyAdapter.mDatas = body.data
                         historyAdapter.notifyDataSetChanged()
 
                     }
                 }
             }
-
-
-
-
         })
     }
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        //requestData()
-        // Inflate the layout for this fragment
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        requestData()
-        requestData2()
-        radioClicked(view)//this.requireView()
         // myAccount.text=topData.account.toString()
 
-        historyAdapter =
-            HistoryAdapter(view.context)
+        historyAdapter = HistoryAdapter(view.context)
         rv_history.adapter = historyAdapter
-        rv_history.layoutManager = LinearLayoutManager(context)
-        rv_history.setHasFixedSize(false)
+        requestData()
+        requestData2()
+
+
+//        rv_history.layoutManager = LinearLayoutManager(context)
+//        rv_history.setHasFixedSize(false)
 
         //loadDummyDatas()
     }
-
-
 
 
     /*private fun loadDummyDatas(){

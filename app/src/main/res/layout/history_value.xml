@@ -29,7 +29,7 @@
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/history_date"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints,UnknownId">
 
 
         <View

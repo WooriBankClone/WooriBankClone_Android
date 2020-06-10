@@ -34,8 +34,7 @@ class StoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        storyAdapter =
-            StoryAdapter(view.context)
+        storyAdapter = StoryAdapter(view.context)
         rv_story.adapter = storyAdapter
         //loadDatas()
         requestData()
@@ -49,10 +48,7 @@ class StoryFragment : Fragment() {
                 Log.e("autoTransfer",t.toString())
             }
 
-            override fun onResponse(
-                call: Call<ResAutoTransfer>,
-                response: Response<ResAutoTransfer>
-            ) {
+            override fun onResponse(call: Call<ResAutoTransfer>, response: Response<ResAutoTransfer>) {
                 if (response.isSuccessful){
                     response.body().let { body ->
                         Log.e("통신 응답 바디", "status: ${body!!.status} data : ${body!!.data}")
